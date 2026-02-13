@@ -26,8 +26,8 @@ export default async function handler(req: any, res: any) {
     // 1. Envoi vers VOUS
     // IMPORTANT : Le 'from' DOIT être onboarding@resend.dev tant que votre domaine n'est pas vérifié
     await resend.emails.send({
-      from: "onboarding@resend.dev",
-      to: "elnicolas787@gmail.com",
+      from: email,
+      to: "onboarding@resend.dev",
       subject: `Devis de ${name}`,
       html: `
         <h2>Nouvelle demande</h2>
