@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend('re_BiXPu1RP_D2UkJyiPpKP6mpsixYMhSns4');
 
 export default async function handler(req: any, res: any) {
   // CORS
