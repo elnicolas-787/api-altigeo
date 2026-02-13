@@ -9,7 +9,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req: any, res: any) {
   // CORS
-  res.setHeader("Access-Control-Allow-Origin", process.env.FRONTEND_URL || "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
