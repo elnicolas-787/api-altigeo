@@ -6,7 +6,13 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://altigeo.mg"],
+    methods: ["POST", "OPTIONS", "GET"],
+  }),
+);
+
 app.use(express.json());
 
 const resend = new Resend("re_BiXPu1RP_D2UkJyiPpKP6mpsixYMhSns4");
@@ -15,6 +21,10 @@ app.post("/send-devis", async (req, res) => {
   try {
     const { name, email, message } = req.body;
 
+    if (!name || !email || !message) {
+      return res.status(400).json({ success: false });
+    }
+    
     await resend.emails.send({
       from: "ALTIGÉO <contact@altigeo.mg>",
       to: "contact@altigeo.mg",
