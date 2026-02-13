@@ -5,11 +5,11 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend('re_BiXPu1RP_D2UkJyiPpKP6mpsixYMhSns4');
 
 export default async function handler(req: any, res: any) {
   // CORS
-  res.setHeader("Access-Control-Allow-Origin", process.env.FRONTEND_URL || "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
@@ -24,7 +24,7 @@ export default async function handler(req: any, res: any) {
     // Email vers l'entreprise
     await resend.emails.send({
       from: "ALTIGÉO <contact@altigeo.mg>",
-      to: "contact@altigeo.mg",
+      to: "elnicolas787@gmail.com",
       subject: "Nouvelle demande de devis",
       html: `<h2>Nouvelle demande</h2>
              <p><strong>Nom:</strong> ${name}</p>
